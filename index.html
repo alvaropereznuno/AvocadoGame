@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>El juego del Avocado</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="Avocado.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script type="text/javascript" src="Avocado.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div id="Panel1" class="panel">
+            <div name="Título" class="row mt-3 mb-2">
+                <h1 class="text-center">El juego del Avocado</h1>
+            </div>
+    
+            <div name="Cuerpo" class="row mb-2">
+                <span>Bienvenido/a a este juego, en el que formarás parte de algo muy importante para Verena y Álvaro.</span>
+                <span>Tendréis que participar en equipo para llegar a resolver este juego.</span>
+                <span>¿Quieres saber más?</span>
+            </div>
+    
+            <div name="Botonera">
+                <div class="p-3 row">
+                    <button id="p1ok" type="button" class="btn btn-success col-12" onclick="NextPage('#Panel1', '#Panel2', false)">¡Quiero empezar!</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="Panel2" class="panel">
+            <div name="Título" class="row mt-3 mb-2">
+                <h1 class="text-center">Empecemos...</h1>
+            </div>
+    
+            <div name="Cuerpo" class="row mb-2">
+                <span>Solo unos pocos pueden acceder a este juego. Si eres una de esas personas agraciadas, me encantaría saber quién eres.</span>
+                <span><br></span>
+                <span>¡Pulsa sobre tu nombre!</span>
+            </div>
+    
+            <div name="Botonera">
+                <div class="row p-3">
+                    <div class="col-6 p-1">
+                        <button type="button" class="btn btn-info col-12" onclick="SelectName('#Panel2', '#Panel3', 'Isa')">Isa</button>
+                    </div>
+                    <div class="col-6 p-1">
+                        <button type="button" class="btn btn-info col-12" onclick="SelectName('#Panel2', '#Panel3', 'Paco')">Paco</button>
+                    </div>
+                    <div class="col-6 p-1">
+                        <button type="button" class="btn btn-info col-12" onclick="SelectName('#Panel2', '#Panel3', 'Marta')">Marta</button>
+                    </div>
+                    <div class="col-6 p-1">
+                        <button type="button" class="btn btn-info col-12" onclick="SelectName('#Panel2', '#Panel3', 'Rebeca')">Rebeca</button>
+                    </div>
+                    <div class="col-6 p-1">
+                        <button type="button" class="btn btn-info col-12" onclick="SelectName('#Panel2', '#Panel3', 'Regina')">Regina</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="Panel3" class="panel">
+            <div name="Título" class="row mt-3 mb-2">
+                <h1 class="text-center">¡Hola <span id="Name"></span>!</h1>
+            </div>
+    
+            <div name="Cuerpo" class="row mb-2">
+                <span>Verena y Álvaro están esperando a alguien especial. Y tienen una historia que quieren contar,
+                    pero falta algo de información que deberás de rellenar.
+                </span>
+                <span>Así que irán apareciendo unos huecos en la historia, y tendrás que acertar. ¡Si apruebas, obtendrás algo importantísimo!</span>
+                <span><br></span>
+                <span>Pero empecemos con lo básico. Como sabrás ellos esperan que llegue ___________</span>
+            </div>
+    
+            <div name="Botonera">
+                <div class="row p-3">
+                    <div class="col-6 p-1">
+                        <button id="p3ok" type="button" class="btn btn-info col-12" onclick="NextPage('#Panel3', '#Panel4', true)">Un niño</button>
+                    </div>
+                    <div class="col-6 p-1">
+                        <button id="p3ko1" type="button" class="btn btn-info col-12" onclick="NextPage('#Panel3', '#Panel4', false)">Una niña</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="Panel4" class="panel">
+            <div name="Título" class="row mt-3 mb-2">
+                <h1 class="text-center">El mote</h1>
+            </div>
+    
+            <div name="Cuerpo" class="row mb-2">
+                <span>Mientras no tenga nombre y esté creciendo en la barrigita de Verena, ellos le llaman cariñosamente ___________</span>
+                <span>¡Aunque esperemos que algún día tenga nombre!</span>
+            </div>
+    
+            <div name="Botonera">
+                <div class="row p-3">
+                    <div class="col-6 p-1">
+                        <button id="p4ko1" type="button" class="btn btn-info col-12" onclick="NextPage('#Panel4', '#Panel5', false)">Platanito</button>
+                    </div>
+                    <div class="col-6 p-1">
+                        <button id="p4ok" type="button" class="btn btn-info col-12" onclick="NextPage('#Panel4', '#Panel5', true)">Aguacate</button>
+                    </div>
+                    <div class="col-6 p-1">
+                        <button id="p4ko2" type="button" class="btn btn-info col-12" onclick="NextPage('#Panel4', '#Panel5', false)">Bichito</button>
+                    </div>
+                    <div class="col-6 p-1">
+                        <button id="p4ko3" type="button" class="btn btn-info col-12" onclick="NextPage('#Panel4', '#Panel5', false)">Okupa</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="Panel5" class="panel">
+            <div name="Título" class="row mt-3 mb-2">
+                <h1 class="text-center">El anuncio</h1>
+            </div>
+    
+            <div name="Cuerpo" class="row mb-2">
+                <span>Pero antes de llamarlo de esa manera, tuvieron que anunciarlo a todo el mundo. Las dos primeras que lo supieron
+                    fueron Regina y Marta. Y fue muy divertido cómo se enteraron:
+                </span>
+                <span><br></span>
+                <span>Verena le dió a ellas una caja en la que dentro había ___________ ¡que sería el anuncio de su embarazo!</span>
+            </div>
+    
+            <div name="Botonera">
+                <div class="row p-3">
+                    <div class="col-6 p-1">
+                        <button id="p5ok" type="button" class="btn btn-info col-12" onclick="NextPage('#Panel5', '#Panel6', true)">Unos patucos</button>
+                    </div>
+                    <div class="col-6 p-1">
+                        <button id="p5ko1" type="button" class="btn btn-info col-12" onclick="NextPage('#Panel5', '#Panel6', false)">Un chupete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="Panel6" class="panel">
+            <div name="Título" class="row mt-3 mb-2">
+                <h1 class="text-center">Primera reacción</h1>
+            </div>
+    
+            <div name="Cuerpo" class="row mb-2">
+                <span>Marta se puso a dar saltos de contenta, ¡abrazó con fuerza a Verena muy emocinada!</span>
+                <span><br></span>
+                <span>Y su madre también fue muy gracioso, porque se quedó en la silla quieta, mirando al infinito, y
+                    cuando Verena le preguntó que qué le parecía, ella dijo: "___________"
+                </span>
+            </div>
+    
+            <div name="Botonera">
+                <div class="row p-3">
+                    <div class="col-12 p-1">
+                        <button id="p6ko1" type="button" class="btn btn-info col-12" onclick="NextPage('#Panel6', '#Panel7', false)">Por fin, ya era hora</button>
+                    </div>
+                    <div class="col-12 p-1">
+                        <button id="p6ok" type="button" class="btn btn-info col-12" onclick="NextPage('#Panel6', '#Panel7', true)">Estoy como en una nube</button>
+                    </div>
+                    <div class="col-12 p-1">
+                        <button id="p6ko2" type="button" class="btn btn-info col-12" onclick="NextPage('#Panel6', '#Panel7', false)">¿Y el anillo para cuándo?</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div id="Panel7" class="panel">
+            <div name="Título" class="row mt-3 mb-2">
+                <h1 class="text-center">La reacción de Isa</h1>
+            </div>
+    
+            <div name="Cuerpo" class="row mb-2">
+                <span>
+                    Ese mismo día también se enteraron el resto de la familia de la gran noticia.<br>
+                    Cuando Isa y Paco bajaron, Verena les anunció el embarazo del mismo modo, a lo que rápidamente Isa,
+                    muy contenta, subió a casa y bajó ___________, para que diera suerte!!
+                </span>
+            </div>
+    
+            <div name="Botonera">
+                <div class="row p-3">
+                    <div class="col-12 p-1">
+                        <button id="p7ko1" type="button" class="btn btn-info col-12" onclick="NextPage('#Panel7', '#Panel8', false)">Una botella de champán, y brindaron con ella</button>
+                    </div>
+                    <div class="col-12 p-1">
+                        <button id="p7ok" type="button" class="btn btn-info col-12" onclick="NextPage('#Panel7', '#Panel8', true)">Unos décimos de lotería que restregó por la barrigita</button>
+                    </div>
+                    <div class="col-12 p-1">
+                        <button id="p7ko2" type="button" class="btn btn-info col-12" onclick="NextPage('#Panel7', '#Panel8', false)">Un amuleto ancestral que pasó de generación en generación</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div id="Panel8" class="panel">
+            <div name="Título" class="row mt-3 mb-2">
+                <h1 class="text-center">Desde Bulgaria</h1>
+            </div>
+    
+            <div name="Cuerpo" class="row mb-2">
+                <span>
+                    Rebeca no pudo enterarse presencialmente porque se encontraba en Bulgaria. Por eso, Verena le mandó la foto
+                    por WhatsApp, y ella expresó: "Me muero ___________"
+                    <br><br>
+                    Y así, ya por fin toda la familia se enteró de la grandísima noticia.
+                </span>
+            </div>
+    
+            <div name="Botonera">
+                <div class="row p-3">
+                    <div class="col-6 p-1">
+                        <button id="p8ko1" type="button" class="btn btn-info col-12" onclick="NextPage('#Panel8', '#Panel9', false)">¡Vamos a tener un primo!</button>
+                    </div>
+                    <div class="col-6 p-1">
+                        <button id="p8ko2" type="button" class="btn btn-info col-12" onclick="NextPage('#Panel8', '#Panel9', true)">¡Vamos a tener un prime!</button>
+                    </div>
+                    <div class="col-6 p-1">
+                        <button id="p8ok" type="button" class="btn btn-info col-12" onclick="NextPage('#Panel8', '#Panel9', false)">¡Vamos a tener una prima!</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div id="Panel9" class="panel">
+            <div name="Título" class="row mt-3 mb-2">
+                <h1 class="text-center">Regalo de Reyes</h1>
+            </div>
+    
+            <div name="Cuerpo" class="row mb-2">
+                <span>
+                    Verena y Álvaro se volvieron a Málaga, felices ya que todos sabían la noticia.
+                    <br><br>
+                    Pero como los turrones, volvieron por Navidad, con la barrigita más gorda ¡Ya se notaba y se veía perfectamente!
+                    <br><br>
+                    Y en nombre de la familia, le regalaron una cámara de fotos, un álbum de fotos, y ___________
+                </span>
+            </div>
+    
+            <div name="Botonera">
+                <div class="row p-3">
+                    <div class="col-12 p-1">
+                        <button id="p9ok" type="button" class="btn btn-info col-12" onclick="NextPage('#Panel9', '#Panel10', true)">Unos patucos hecho a mano por una búlgara</button>
+                    </div>
+                    <div class="col-12 p-1">
+                        <button id="p9ko1" type="button" class="btn btn-info col-12" onclick="NextPage('#Panel9', '#Panel10', false)">Una sudadera de Rodanillo</button>
+                    </div>
+                    <div class="col-12 p-1">
+                        <button id="p9ko2" type="button" class="btn btn-info col-12" onclick="NextPage('#Panel9', '#Panel10', false)">Un gusiluz</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div id="Panel10" class="panel">
+            <div name="Título" class="row mt-3 mb-2">
+                <h1 class="text-center">El roscón</h1>
+            </div>
+    
+            <div name="Cuerpo" class="row mb-2">
+                <span>
+                    Por supuesto, como no podía ser de otro modo en estas fechas, comieron un Roscón de Reyes, y a Álvaro
+                    después de comerse más de medio roscón le tocó el regalo, un ___________, que lo tomaron como una
+                    buena señal.
+                    <br><br>
+                    Mientras que a Isa, que comío una pequeñísima porción, le tocó el haba :)
+                </span>
+            </div>
+    
+            <div name="Botonera">
+                <div class="row p-3">
+                    <div class="col-6 p-1">
+                        <button id="p10ok" type="button" class="btn btn-info col-12" onclick="NextPage('#Panel10', '#Panel11', true)">Niño Jesús</button>
+                    </div>
+                    <div class="col-6 p-1">
+                        <button id="p10ko1" type="button" class="btn btn-info col-12" onclick="NextPage('#Panel10', '#Panel11', false)">Llavero</button>
+                    </div>
+                    <div class="col-6 p-1">
+                        <button id="p10ko2" type="button" class="btn btn-info col-12" onclick="NextPage('#Panel10', '#Panel11', false)">Rey Mago</button>
+                    </div>
+                    <div class="col-6 p-1">
+                        <button id="p10ko3" type="button" class="btn btn-info col-12" onclick="NextPage('#Panel10', '#Panel11', false)">Perrito</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div id="Panel11" class="panel">
+            <div name="Título" class="row mt-3 mb-2">
+                <h1 class="text-center">La fecha</h1>
+            </div>
+    
+            <div name="Cuerpo" class="row mb-2">
+                <span>
+                    Las Navidades fueron muy provechosas. Y la barrigita de Verena empezó a sentir cada vez más movimientos y... ¡¡las
+                    nuevas pataditas!!
+                    <br><br>
+                    Ahora, queda que siga creciendo, hasta que llegue ___________, que es cuando esperamos conocerlo por fin.
+                </span>
+            </div>
+    
+            <div name="Botonera">
+                <div class="row p-3">
+                    <div class="col-6 p-1">
+                        <button id="p11ko1" type="button" class="btn btn-info col-12" onclick="NextPage('#Panel11', '#Panel12', false)">Marzo</button>
+                    </div>
+                    <div class="col-6 p-1">
+                        <button id="p11ok" type="button" class="btn btn-info col-12" onclick="NextPage('#Panel11', '#Panel12', true)">Mayo</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div id="Panel12" class="panel">
+            <div name="Título" class="row mt-3 mb-2">
+                <h1 class="text-center">¡El nombre!</h1>
+            </div>
+    
+            <div name="Cuerpo" class="row mb-2">
+                <span>
+                    Pero claro.... ¡necesita un nombre!
+                    <br>
+                    Álvaro y Verena se lo han ido guardando en secreto durante mucho tiempo,
+                    pero no quieren decírselo a nadie. Aunque aceptaban propuestas, tenían claro que el tipo de nombre que quieren
+                    debe ser ___________.
+                    <br><br>
+                    <b>Pero, ¿y si te digo que ya lo saben?</b>
+                </span>
+            </div>
+    
+            <div name="Botonera">
+                <div class="row p-3">
+                    <div class="col-12 p-1">
+                        <button id="p12ko1" type="button" class="btn btn-info col-12" onclick="LastPage('#Panel12', false)">Extravagante y moderno</button>
+                    </div>
+                    <div class="col-12 p-1">
+                        <button id="p12ok" type="button" class="btn btn-info col-12" onclick="LastPage('#Panel12', true)">Tradicional y actual</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div id="Panel13" class="panel">
+            <div name="Título" class="row mt-3 mb-2">
+                <h1 class="text-center">¡Resultado!</h1>
+            </div>
+    
+            <div name="Cuerpo" class="row mb-2">
+                <span>
+                    Pues el nombre que han elegido es....
+                    <br><br>
+                    ¡¡¡No!!! Has fallado <span id="Kos"></span> preguntas. Vuelve a intentarlo con las respuestas correctas y tendrás la clave para
+                    averiguarlo. Si no las conoces todas, intenta preguntar a quien las conozca, ¡seguro que a la siguiente aciertas!
+                </span>
+            </div>
+    
+            <div name="Botonera">
+                <div class="row p-3">
+                    <div class="col-12 p-1">
+                        <button id="p13" type="button" class="btn btn-dark col-12" onclick="Restart('#Panel13', '#Panel1')">Volver a intentarlo</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div id="Panel14" class="panel">
+            <div name="Título" class="row mt-3 mb-2">
+                <h1 class="text-center">¡La recompensa!</h1>
+            </div>
+    
+            <div name="Cuerpo" class="row mb-2">
+                <span>
+                    ¡¡Bien!! Has respondido a <span id="Oks"></span>/10 respuestas correctamente!! Aquí tienes la recompensa
+                    <br><br>
+                </span>
+                <h1 class="display-1 text-center"><b><span id="Letter"></span></b></h1>
+                <span>
+                    <br>
+                    ¿Y esta letra? ¿Qué puede ser? ¿Será la una clave? ¿Una <b>pieza de puzzle</b>? Quizás, si preguntas a los otros
+                    qué letra tienen, tenga algo de sentido...
+                    <br>
+                    Seguro que con esto... ¡puedes averiguar el nombre!
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous">
+    </script>
+    <script>
+        Initialize();
+    </script>
+</body>
+
+</html>
