@@ -2,6 +2,22 @@ var name = '';
 var correct = 0;
 
 function Initialize(){
+    this.name = GetParameterByName('name');
+
+    if (this.name == ""){
+        $("#Wellcome").text("Bienvenido/a a este juego, en el que formarás parte de algo muy importante para Verena y Álvaro. " +
+        "Tendréis que participar en equipo para llegar a resolver este juego.");
+        
+        $("#Title1").text("El juego del Aguacate");
+    } else {
+        $("#Wellcome").text("¡Hola " + this.name + "! Hemos diseñado este juego para tí, en el que formarás parte de algo muy importante para Verena y Álvaro. " +
+        "Tendrás que participar en equipo para llegar a resolver este juego.");
+
+        $("#Name").text(this.name);
+        $("#Title1").text("¡¡Hola " + this.name + "!!");
+        $("#Title2").text("El juego del Aguacate");
+    }
+
     $('#Panel1').show();
     $('#Panel2').hide();
     $('#Panel3').hide(); 
@@ -20,11 +36,18 @@ function Initialize(){
     $('#p3next').hide();
 }
 
+function CustomNextPageInit(){
+    if (this.name == '')
+        NextPage('#Panel1', '#Panel2', false);
+    else
+        NextPage('#Panel1', '#Panel3', false);
+}
+
 function SelectName (panelFrom, panelTo, name){
     this.name = name;
 
     $(panelFrom).fadeOut('slow', function() { $(panelTo).fadeIn('slow') });
-    $("#Name").text(this.name);
+    $("#Title2").text("¡¡Hola " + this.name + "!!");
 }
 
 function NextPage (panelFrom, panelTo, isOk){
@@ -56,8 +79,15 @@ function LastPage (panelFrom, isOk){
 
 function Restart (panelFrom, panelTo){
     this.correct = 0;
-    this.name = '';
+    this.name = GetParameterByName('name');
 
     $(panelFrom).hide();
     $(panelTo).show();
+}
+
+function GetParameterByName(name) {
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+    results = regex.exec(location.search);
+    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
 }
